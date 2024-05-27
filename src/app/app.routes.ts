@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { OperacionesComponent } from './operaciones/operaciones.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { CategoriaFormComponent } from './categoria-form/categoria-form.component';
 
 export const routes: Routes = [
     {
@@ -15,5 +16,9 @@ export const routes: Routes = [
     },
     {
         path: 'categorias', component: CategoriasComponent
-    }
+    },
+    {
+        path: 'categoriaForm', component: CategoriaFormComponent
+    },
+    
 ];

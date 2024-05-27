@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './categorias.component.html',
   styleUrl: './categorias.component.css'
 })
-export class CategoriasComponent {
+export class CategoriasComponent{
   titulo: string = 'Categorias';
   listadoDeCategorias: Categoria[] = [
     {idCategoria: 1, nombreCategoria: 'Deportes', descripcionCategoria: 'Artículos Deportivos'},
