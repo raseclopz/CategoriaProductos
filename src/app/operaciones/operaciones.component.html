@@ -1,25 +1,45 @@
 <div class="mt-3">
     <div class="container">
-        <div class="card border-primary text-primary text-center">
-            <div class="card-header text-center">
-                <h1 class="card-title text-center text-primary">
-                    {{ titulo }}
-                </h1>
+      <div class="card border-primary text-primary text-center mb-3">
+        <div class="card-header">
+          <h1 class="card-title">{{ titulo }}</h1>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="txtCentigrados" class="form-label">Grados Centígrados</label>
+                <input type="number" class="form-control" id="txtCentigrados" name="gradosCentigrados" [(ngModel)]="gradosCentigrados" />
+              </div>
+              <div class="col-md-4">
+                <label for="txtFahrenheit" class="form-label">Grados Fahrenheit</label>
+                <input type="number" class="form-control" id="txtFahrenheit" name="gradosFahrenheit" [(ngModel)]="gradosFahrenheit" />
+              </div>
+              <div class="col-md-4">
+                <label for="txtKelvin" class="form-label">Grados Kelvin</label>
+                <input type="number" class="form-control" id="txtKelvin" name="gradosKelvin" [(ngModel)]="gradosKelvin" />
+              </div>
             </div>
+            <div class="row">
+              <div class="col-md-4">
+                <button type="button" class="btn btn-outline-primary mb-2 w-100" (click)="convertirCentigradosAFahrenheit()">Centígrados a Fahrenheit</button>
+                <button type="button" class="btn btn-outline-primary mb-2 w-100" (click)="convertirCentigradosAKelvin()">Centígrados a Kelvin</button>
+              </div>
+              <div class="col-md-4">
+                <button type="button" class="btn btn-outline-primary mb-2 w-100" (click)="convertirFahrenheitACentigrados()">Fahrenheit a Centígrados</button>
+                <button type="button" class="btn btn-outline-primary mb-2 w-100" (click)="convertirFahrenheitAKelvin()">Fahrenheit a Kelvin</button>
+              </div>
+              <div class="col-md-4">
+                <button type="button" class="btn btn-outline-primary mb-2 w-100" (click)="convertirKelvinACentigrados()">Kelvin a Centígrados</button>
+                <button type="button" class="btn btn-outline-primary mb-2 w-100" (click)="convertirKelvinAFahrenheit()">Kelvin a Fahrenheit</button>
+              </div>
+            </div>
+          </form>
+          <div class="alert alert-success mt-3" role="alert">
+            El resultado es: {{ resultado }}
+          </div>
         </div>
-        <div class="card-body text-primary">
-            <form>
-                <div class="mb-3">
-                  <label for="txtCentigrados" class="form-label">Grados Centígrafos</label>
-                  <input type="number" class="form-control" id="txtCentigrados"
-                  name="grados"
-                    [(ngModel)]="grados"
-                  />
-                </div>
-                <button type="button" class="form-control btn btn-outline-primary" 
-                (click)="convertirAFarenheit()">Convertir a Farenheit</button>
-              </form>
-              <label class="form-label text-success">El resultado es: {{ resultado }}</label>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
