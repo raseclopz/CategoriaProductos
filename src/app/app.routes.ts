@@ -20,5 +20,8 @@ export const routes: Routes = [
     {
         path: 'categoriaForm', component: CategoriaFormComponent
     },
+    {
+        path: 'categoriaForm/:id', component: CategoriaFormComponent
+    },
     
 ];

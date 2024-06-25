@@ -1,24 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Categoria } from '../model/Categoria';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { CategoriaService } from '../service/categoria.service';
+import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-categorias',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './categorias.component.html',
   styleUrl: './categorias.component.css'
 })
-export class CategoriasComponent{
+export class CategoriasComponent implements OnInit{
   titulo: string = 'Categorias';
-  listadoDeCategorias: Categoria[] = [
-    {idCategoria: 1, nombreCategoria: 'Deportes', descripcionCategoria: 'Artículos Deportivos'},
-    {idCategoria: 2, nombreCategoria: 'Electrónica', descripcionCategoria: 'Artículos Electrónicos'},
-    {idCategoria: 3, nombreCategoria: 'Línea Blanca', descripcionCategoria: 'Artículos de Línea Blanca'},
-    {idCategoria: 4, nombreCategoria: 'Cómputo', descripcionCategoria: 'Artículos de Cómputo'},
-    {idCategoria: 5, nombreCategoria: 'Ropa', descripcionCategoria: 'Artículos de Ropa'},
-  ];
+  listadoDeCategorias: Categoria[] = [];
+
+  constructor(private categoriaService: CategoriaService) { };
+  httpClient = inject(HttpClient);
+
+  ngOnInit(): void {
+      this.categoriaService.mostrarCategorias().subscribe(
+        (lascategorias) => this.listadoDeCategorias = lascategorias
+      );
+  };
 
   update(): void {
     Swal.fire({
@@ -28,7 +34,7 @@ export class CategoriasComponent{
     });
   }
 
-  delete():void{
+  delete(categoria : Categoria):void{
     Swal.fire({
       title: "¿Estás seguro?",
       text: "No podrás revertir esto!",
@@ -39,6 +45,7 @@ export class CategoriasComponent{
       confirmButtonText: "Sí, bórralo!"
     }).then((result) => {
       if (result.isConfirmed) {
+        this.categoriaService.eliminarCategoria(categoria.idCategoria).subscribe((response) => this.categoriaService.mostrarCategorias().subscribe((lasCategorias) => (this.listadoDeCategorias = lasCategorias)));
         Swal.fire({
           title: "Eliminado!",
           text: "El registro ha sido eliminado satisfactoriamente.",
