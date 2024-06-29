@@ -3,8 +3,8 @@ import { HomeComponent } from './home/home.component';
 import { OperacionesComponent } from './operaciones/operaciones.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { CategoriaFormComponent } from './categoria-form/categoria-form.component';
-import { ProductosComponent } from '../app/productos/producto.component';
-import { ProductoFormComponent } from '../app/productos-form/producto-form.component';
+import { ProductosComponent } from './productos/producto.component';
+import { ProductoFormComponent } from './productos-form/producto-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
