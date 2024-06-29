@@ -11,10 +11,10 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './categorias.component.html',
   styleUrls: ['./categorias.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule] // Importar CommonModule, RouterModule, y FormsModule aquí
+  imports: [CommonModule, RouterModule, FormsModule]
 })
 export class CategoriasComponent implements OnInit {
-  titulo: string = 'Categorias';
+  titulo: string = 'Categorías';
   listadoDeCategorias: Categoria[] = [];
 
   constructor(private categoriaService: CategoriaService) { }
@@ -24,12 +24,11 @@ export class CategoriasComponent implements OnInit {
   }
 
   cargarCategorias(): void {
-    console.log('Cargando categorías...'); // Mensaje de depuración
     this.categoriaService.mostrarCategorias().subscribe(categorias => {
       this.listadoDeCategorias = categorias;
-      console.log('Categorías cargadas en el componente:', this.listadoDeCategorias); // Mensaje de depuración
+      console.log('Categorías cargadas en el componente:', this.listadoDeCategorias); // Depuración
     }, error => {
-      console.error('Error al cargar categorías:', error); // Mensaje de depuración
+      console.error('Error al cargar categorías:', error); // Depuración
     });
   }
 

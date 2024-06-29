@@ -1,38 +1,33 @@
 <div class="mb-3">
-    <div class="container border-primary text-center">
-      <div class="card text-primary">
-        <div class="card-header text-center">
-          <h1 class="card-title">
-            {{titulo}}
-          </h1>
-        </div>
-      </div>
-      <div class="card-body border-primary">
-        <form>
-          <div class="mb-3">
-            <label for="txtIdCategoria" class="form-label">idCategoría</label>
-            <input type="text" id="txtIdCategoria" name="idCategoria" class="form-control" [(ngModel)]="categoria.idCategoria" readonly />
-          </div>
-          <div class="mb-3">
-            <label for="txtnombreCategoria" class="form-label">nombreCategoria</label>
-            <input type="text" id="txtnombreCategoria" name="nombreCategoria" class="form-control" [(ngModel)]="categoria.nombreCategoria" required />
-          </div>
-          <div class="mb-3">
-            <label for="txtdescripcionCategoria" class="form-label">descripcionCategoria</label>
-            <input type="text" id="txtdescripcionCategoria" name="descripcionCategoria" class="form-control" [(ngModel)]="categoria.descripcionCategoria" required />
-          </div>
-          <div class="mb-3">
-            <button type="button" class="btn btn-outline-success form-control" *ngIf="categoria.idCategoria; else elseBlock" (click)="actualizarCategoria()">
-              Actualizar
-            </button>
-            <ng-template #elseBlock>
-              <button type="button" class="btn btn-outline-primary form-control" (click)="registrarCategoria()">
-                Registrar
-              </button>
-            </ng-template>
-          </div>
-        </form>
+  <div class="container border-primary text-center">
+    <div class="card text-primary">
+      <div class="card-header text-center">
+        <h1 class="card-title">
+          {{titulo}}
+        </h1>
       </div>
     </div>
+    <div class="card-body border-primary">
+      <form>
+        <div class="mb-3">
+          <label for="txtNombreCategoria" class="form-label">Nombre</label>
+          <input type="text" id="txtNombreCategoria" name="nombreCategoria" class="form-control" [(ngModel)]="categoria.nombreCategoria" required />
+        </div>
+        <div class="mb-3">
+          <label for="txtDescripcionCategoria" class="form-label">Descripción</label>
+          <input type="text" id="txtDescripcionCategoria" name="descripcionCategoria" class="form-control" [(ngModel)]="categoria.descripcionCategoria" required />
+        </div>
+        <div class="mb-3">
+          <button type="button" class="btn btn-outline-success form-control" *ngIf="categoria.idCategoria; else elseBlock" (click)="actualizarCategoria()">
+            Actualizar
+          </button>
+          <ng-template #elseBlock>
+            <button type="button" class="btn btn-outline-primary form-control" (click)="registrarCategoria()">
+              Registrar
+            </button>
+          </ng-template>
+        </div>
+      </form>
+    </div>
   </div>
-  
+</div>

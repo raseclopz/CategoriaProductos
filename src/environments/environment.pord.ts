@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://categoriaproductosback.onrender.com' // Reemplaza esta URL con la URL de tu backend en Render
+    apiUrl: 'https://categoriaproductosback.onrender.com' // Asegúrate de que esta URL es correcta
   };
   

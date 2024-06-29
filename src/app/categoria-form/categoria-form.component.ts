@@ -28,6 +28,7 @@ export class CategoriaFormComponent implements OnInit {
   }
 
   registrarCategoria(): void {
+    console.log('Datos de la categoría antes de enviar:', this.categoria); // Agregar mensaje de depuración
     this.categoriaService.crearCategoria(this.categoria).subscribe(() => {
       this.router.navigate(['/categorias']);
       Swal.fire({
@@ -41,6 +42,7 @@ export class CategoriaFormComponent implements OnInit {
         text: "Hubo un problema al registrar la categoría",
         icon: "error"
       });
+      console.error('Error al crear la categoría:', error); // Agregar mensaje de depuración
     });
   }
 
@@ -58,6 +60,7 @@ export class CategoriaFormComponent implements OnInit {
         text: "Hubo un problema al actualizar la categoría",
         icon: "error"
       });
+      console.error('Error al actualizar la categoría:', error); // Agregar mensaje de depuración
     });
   }
 
