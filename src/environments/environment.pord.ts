@@ -1,5 +1,6 @@
 export const environment = {
-    production: true,
+    production: false,
     apiUrl: 'https://categoriaproductosback.onrender.com' // Asegúrate de que esta URL es correcta
+    //apiUrl: 'http://localhost:3000'
   };
   

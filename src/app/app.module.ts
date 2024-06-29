@@ -51,7 +51,7 @@ export class CategoriasComponent implements OnInit {
       confirmButtonText: "Sí, bórralo!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.categoriaService.eliminarCategoria(categoria.idCategoria).subscribe(() => {
+        this.categoriaService.eliminarCategoria(categoria.id).subscribe(() => {
           this.cargarCategorias();
         });
         Swal.fire({

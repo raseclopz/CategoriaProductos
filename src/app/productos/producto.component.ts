@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../model/Producto';
 import { ProductoService } from '../service/producto.service';
+import { Producto } from '../model/Producto';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./producto.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule] // Importar CommonModule, RouterModule, y FormsModule aquí
+  imports: [CommonModule, RouterModule, FormsModule] // Importar RouterModule y FormsModule aquí
 })
 export class ProductosComponent implements OnInit {
   titulo: string = 'Productos';
@@ -24,12 +24,25 @@ export class ProductosComponent implements OnInit {
   }
 
   cargarProductos(): void {
-    console.log('Cargando productos...'); // Mensaje de depuración
-    this.productoService.mostrarProductos().subscribe(productos => {
-      this.listadoDeProductos = productos;
-      console.log('Productos cargados en el componente:', this.listadoDeProductos); // Mensaje de depuración
+    this.productoService.mostrarProductos().subscribe((productos: any[]) => {
+      this.listadoDeProductos = productos.map(p => ({
+        idProducto: p.id,
+        nombreProducto: p.nombre,
+        descripcionProducto: p.descripcion,
+        precioProducto: p.precio,
+        categoriaId: p.categoriaid
+      }));
+      console.log('Productos cargados en el componente:', this.listadoDeProductos); // Agregar para depuración
     }, error => {
-      console.error('Error al cargar productos:', error); // Mensaje de depuración
+      console.error('Error al cargar productos:', error); // Agregar para depuración
+    });
+  }
+
+  update(): void {
+    Swal.fire({
+      title: "Actualizar",
+      text: "Aquí va lo de actualizar",
+      icon: "info"
     });
   }
 

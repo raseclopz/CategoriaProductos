@@ -11,19 +11,19 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>idCategoría</th>
-            <th>nombreCategoría</th>
-            <th>descripciónCategoría</th>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let c of listadoDeCategorias">
-            <td>{{c.idCategoria}}</td>
-            <td>{{c.nombreCategoria}}</td>
-            <td>{{c.descripcionCategoria}}</td>
+            <td>{{c.id}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.descripcion}}</td>
             <td>
-              <button class="btn btn-outline-success btn-sm" type="button" [routerLink]="['/categoriaForm', c.idCategoria]">Actualizar</button>
+              <button class="btn btn-outline-success btn-sm" type="button" [routerLink]="['/categoriaForm', c.id]">Actualizar</button>
               <button class="btn btn-outline-danger btn-sm" type="button" (click)="delete(c)">Eliminar</button>
             </td>
           </tr>

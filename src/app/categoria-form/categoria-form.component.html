@@ -11,14 +11,14 @@
       <form>
         <div class="mb-3">
           <label for="txtNombreCategoria" class="form-label">Nombre</label>
-          <input type="text" id="txtNombreCategoria" name="nombreCategoria" class="form-control" [(ngModel)]="categoria.nombreCategoria" required />
+          <input type="text" id="txtNombreCategoria" name="nombre" class="form-control" [(ngModel)]="categoria.nombre" required />
         </div>
         <div class="mb-3">
           <label for="txtDescripcionCategoria" class="form-label">Descripción</label>
-          <input type="text" id="txtDescripcionCategoria" name="descripcionCategoria" class="form-control" [(ngModel)]="categoria.descripcionCategoria" required />
+          <input type="text" id="txtDescripcionCategoria" name="descripcion" class="form-control" [(ngModel)]="categoria.descripcion" required />
         </div>
         <div class="mb-3">
-          <button type="button" class="btn btn-outline-success form-control" *ngIf="categoria.idCategoria; else elseBlock" (click)="actualizarCategoria()">
+          <button type="button" class="btn btn-outline-success form-control" *ngIf="categoria.id; else elseBlock" (click)="actualizarCategoria()">
             Actualizar
           </button>
           <ng-template #elseBlock>

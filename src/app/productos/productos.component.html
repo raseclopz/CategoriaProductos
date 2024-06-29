@@ -11,12 +11,11 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>idProducto</th>
-            <th>nombreProducto</th>
-            <th>descripcionProducto</th>
-            <th>precioProducto</th>
-            <th>categoriaId</th>
-            <th>Acciones</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Categoria ID</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +27,8 @@
             <td>{{p.categoriaId}}</td>
             <td>
               <button class="btn btn-outline-success btn-sm" type="button" [routerLink]="['/productoForm', p.idProducto]">Actualizar</button>
+            </td>
+            <td>
               <button class="btn btn-outline-danger btn-sm" type="button" (click)="delete(p)">Eliminar</button>
             </td>
           </tr>

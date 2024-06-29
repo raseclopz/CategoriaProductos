@@ -15,7 +15,7 @@ export class CategoriaService {
   constructor(private http: HttpClient) { }
 
   mostrarCategorias(): Observable<Categoria[]> {
-    return this.http.get(this.endPoint).pipe(map(response => response as Categoria[]));
+    return this.http.get<Categoria[]>(this.endPoint);
   }
 
   mostrarCategoria(id: number): Observable<Categoria> {
@@ -23,14 +23,14 @@ export class CategoriaService {
   }
 
   crearCategoria(categoria: Categoria): Observable<Categoria> {
-    return this.http.post<Categoria>(this.endPoint, categoria, {headers: this.httpheaders});
+    return this.http.post<Categoria>(this.endPoint, categoria, { headers: this.httpheaders });
   }
 
-  eliminarCategoria(id: number): Observable<Categoria> {
-    return this.http.delete<Categoria>(`${this.endPoint}/${id}`, {headers: this.httpheaders});
+  eliminarCategoria(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.endPoint}/${id}`, { headers: this.httpheaders });
   }
 
   actualizarCategoria(categoria: Categoria): Observable<Categoria> {
-    return this.http.put<Categoria>(`${this.endPoint}/${categoria.idCategoria}`, categoria, {headers: this.httpheaders});
+    return this.http.put<Categoria>(`${this.endPoint}/${categoria.id}`, categoria, { headers: this.httpheaders });
   }
 }

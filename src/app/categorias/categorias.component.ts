@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, RouterModule, FormsModule]
 })
 export class CategoriasComponent implements OnInit {
-  titulo: string = 'Categorías';
+  titulo: string = 'Categorias';
   listadoDeCategorias: Categoria[] = [];
 
   constructor(private categoriaService: CategoriaService) { }
@@ -26,9 +26,9 @@ export class CategoriasComponent implements OnInit {
   cargarCategorias(): void {
     this.categoriaService.mostrarCategorias().subscribe(categorias => {
       this.listadoDeCategorias = categorias;
-      console.log('Categorías cargadas en el componente:', this.listadoDeCategorias); // Depuración
+      console.log('Categorías cargadas:', this.listadoDeCategorias);
     }, error => {
-      console.error('Error al cargar categorías:', error); // Depuración
+      console.error('Error al cargar categorías:', error);
     });
   }
 
@@ -43,7 +43,7 @@ export class CategoriasComponent implements OnInit {
       confirmButtonText: "Sí, bórralo!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.categoriaService.eliminarCategoria(categoria.idCategoria).subscribe(() => {
+        this.categoriaService.eliminarCategoria(categoria.id).subscribe(() => {
           this.cargarCategorias();
         });
         Swal.fire({

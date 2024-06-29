@@ -4,12 +4,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Producto } from '../model/Producto';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment.pord';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
-  private endPoint: string = 'http://localhost:3000/apiProductos/productos';
+  private endPoint: string = `${environment.apiUrl}/apiProductos/productos`;
   private httpheaders = new HttpHeaders(
     {'Content-Type': 'application/json'}
   )
