@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../model/Categoria';
-import { CategoriaService } from '../service/categoria.service';
+import { Categoria } from '../app/model/Categoria';
+import { CategoriaService } from '../app/service/categoria.service';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
 @Component({
   selector: 'app-categorias',
-  templateUrl: './categorias.component.html',
-  styleUrls: ['./categorias.component.css'],
+  templateUrl: '../app/categorias/categorias.component.html',
+  styleUrls: ['../app/categorias/categorias.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule] // Importar CommonModule, RouterModule, y FormsModule aquí
+  imports: [CommonModule, RouterModule, FormsModule] // Importar RouterModule y FormsModule aquí
 })
 export class CategoriasComponent implements OnInit {
   titulo: string = 'Categorias';
@@ -24,12 +24,19 @@ export class CategoriasComponent implements OnInit {
   }
 
   cargarCategorias(): void {
-    console.log('Cargando categorías...'); // Mensaje de depuración
     this.categoriaService.mostrarCategorias().subscribe(categorias => {
       this.listadoDeCategorias = categorias;
-      console.log('Categorías cargadas en el componente:', this.listadoDeCategorias); // Mensaje de depuración
+      console.log('Categorías cargadas:', this.listadoDeCategorias); // Agregar para depuración
     }, error => {
-      console.error('Error al cargar categorías:', error); // Mensaje de depuración
+      console.error('Error al cargar categorías:', error); // Agregar para depuración
+    });
+  }
+
+  update(): void {
+    Swal.fire({
+      title: "Actualizar",
+      text: "Aquí va lo de actualizar",
+      icon: "info"
     });
   }
 

@@ -1,0 +1,45 @@
+<div class="mb-3">
+  <div class="container border-primary text-center">
+    <div class="card text-primary">
+      <div class="card-header text-center">
+        <h1 class="card-title">
+          {{titulo}}
+        </h1>
+      </div>
+    </div>
+    <div class="card-body border-primary">
+      <form>
+        <div class="mb-3">
+          <label for="txtIdProducto" class="form-label">idProducto</label>
+          <input type="text" id="txtIdProducto" name="idProducto" class="form-control" readonly [(ngModel)]="producto.idProducto"/>
+        </div>
+        <div class="mb-3">
+          <label for="txtNombreProducto" class="form-label">nombreProducto</label>
+          <input type="text" id="txtNombreProducto" name="nombreProducto" class="form-control" [(ngModel)]="producto.nombreProducto"/>
+        </div>
+        <div class="mb-3">
+          <label for="txtDescripcionProducto" class="form-label">descripcionProducto</label>
+          <input type="text" id="txtDescripcionProducto" name="descripcionProducto" class="form-control" [(ngModel)]="producto.descripcionProducto"/>
+        </div>
+        <div class="mb-3">
+          <label for="txtPrecioProducto" class="form-label">precioProducto</label>
+          <input type="number" id="txtPrecioProducto" name="precioProducto" class="form-control" [(ngModel)]="producto.precioProducto"/>
+        </div>
+        <div class="mb-3">
+          <label for="txtCategoriaId" class="form-label">categoriaId</label>
+          <input type="number" id="txtCategoriaId" name="categoriaId" class="form-control" [(ngModel)]="producto.categoriaId"/>
+        </div>
+        <div class="mb-3">
+          <button type="button" class="btn btn-outline-success form-control" *ngIf="producto.idProducto; else elseBlock" (click)="actualizarProducto()">
+            Actualizar
+          </button>
+          <ng-template #elseBlock>
+            <button type="button" class="btn btn-outline-primary form-control" (click)="registrarProducto()">
+              Registrar
+            </button>
+          </ng-template>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
